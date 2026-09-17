@@ -1,0 +1,36 @@
+# Synovus Financial
+
+> Synovus Financial Corp. was a Columbus, Georgia based regional bank holding company whose bank subsidiary, Synovus Bank, offers commercial and consumer banking, treasury and payment solutions (Synovus Gateway, the Accelerate AR/FX/Pay/Trade suite), wealth and capital markets services across Georgia, Alabama, Florida, South Carolina and Tennessee. Synovus combined with Pinnacle Financial Partners in 2026 ("Synovus and Pinnacle Financial Partners are now one firm" — synovus.com homepage); the surviving company is Pinnacle Financial Partners (pnfp.com) and investors.synovus.com now redirects to investors.pnfp.com.
+
+<!-- generated: 2026-09-17 | method: generated | source: apis.yml + live probes recorded in well-known/synovus-financial-well-known.yml. This file was written by API Evangelist from the provider's public website; Synovus does not publish an llms.txt (www.synovus.com/llms.txt 404, developer.synovus.com/llms.txt 403). -->
+
+## Public API surface
+
+Synovus publishes no public API contract. What was found on 2026-09-17:
+
+- developer.synovus.com resolves (explicit Akamai edgekey CNAME, no wildcard DNS) but answers HTTP 403 "Access Denied" on every path — the root, /docs, /openapi.json, /robots.txt, /llms.txt and every /.well-known/* document — from two separate networks. A developer host exists, and it is closed to anonymous readers.
+- api.synovus.com does not resolve in DNS.
+- www.synovus.com serves no /.well-known/* documents, no security.txt and no llms.txt (all 404).
+- No first-party GitHub organization, Postman workspace, or package registry entry was found (github.com/Synovus is an unrelated personal account).
+- Treasury and payment integrations are delivered through partner platforms rather than a documented bank API: Gateway ERP (launched October 2025) is powered by Koxa's Treasury Gateway (koxa.io); Accelerate Pay advertises ERP integration without a public reference. Maast, the embedded-finance subsidiary launched in 2022, has been wound down — maast.com now redirects to the Synovus homepage.
+
+## Company pages
+
+- [Website](https://www.synovus.com/): Synovus homepage
+- [Treasury and payment solutions](https://www.synovus.com/business/online-banking/gateway/treasury-and-payment-solutions/): Synovus Gateway product catalog (ACH, wires, lockbox, RDC, SWIFT messaging, information reporting)
+- [Accelerate Pay](https://www.synovus.com/corporate/accelerate-pay/): integrated business payments product with ERP connectivity
+- [Gateway ERP announcement](https://www.synovus.com/about-us/news/2025/2025-10-09-koxa-partners-with-synovus-to-power-gateway-erp): banking inside ERP workflows, powered by Koxa
+- [News](https://www.synovus.com/about-us/news/): press releases, including the Pinnacle Financial Partners combination
+- [Corporate insights](https://www.synovus.com/corporate/insights/): articles on payments, fraud risk management and treasury
+- [Contact](https://www.synovus.com/contact-us/): customer support channels
+- [Security incident reporting](https://www.synovus.com/contact-us/incident-reporting/): form for reporting a potential information-security concern about a Synovus product to its Information Security Team
+- [Privacy policy](https://www.synovus.com/contact-us/privacy-policy/): privacy notices, CCPA
+- [Investor relations](https://investors.pnfp.com/): Pinnacle Financial Partners investor site (investors.synovus.com redirects here)
+
+## Profile artifacts (API Evangelist)
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/synovus-financial/refs/heads/main/apis.yml): APIs.json index for this profile
+- [well-known probe](well-known/synovus-financial-well-known.yml): per-host, per-path status of every discovery document probed
+- [domain security](security/synovus-financial-domain-security.yml): TLS, HSTS, DNSSEC, CAA, SPF, DMARC observations
+- [plans](plans/synovus-financial-plans-pricing.yml): records that no public API pricing exists
+- [rate limits](rate-limits/synovus-financial-rate-limits.yml): records that no public rate-limit policy exists

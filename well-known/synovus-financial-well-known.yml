@@ -1,0 +1,114 @@
+generated: '2026-09-17'
+method: probed
+source: live HTTP probes of every host the record knows (www.synovus.com, synovus.com, developer.synovus.com, api.synovus.com)
+provider: Synovus Financial
+providerId: synovus-financial
+note: >-
+  No /.well-known document is served on any host. www.synovus.com answers a 404 HTML page for every
+  path; the apex 301s every path to www; developer.synovus.com is a provisioned Akamai host that
+  answers 403 "Access Denied" (edgesuite reference page) on every path, including robots.txt and
+  llms.txt, from two separate egress networks; api.synovus.com does not resolve in DNS (NXDOMAIN,
+  recorded as status 0). Because nothing returned a real document, apis.yml carries NO WellKnown or
+  SecurityTxt pointer — this file records the absence.
+hosts:
+  - host: www.synovus.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+      - path: /llms.txt
+        status: 404
+        file: null
+      - path: /security.txt
+        status: 404
+        file: null
+  - host: synovus.com
+    note: apex 301s every path to https://www.synovus.com/ — see the www host above for the terminal status
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 301
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 301
+        file: null
+      - path: /.well-known/api-catalog
+        status: 301
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 301
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 301
+        file: null
+      - path: /.well-known/agent.json
+        status: 301
+        file: null
+  - host: developer.synovus.com
+    note: Akamai "Access Denied" (HTTP 403, errors.edgesuite.net reference) on every path; the host is deliberately provisioned (explicit edgekey CNAME, no wildcard DNS on synovus.com) but refuses anonymous access
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 403
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        file: null
+      - path: /.well-known/oauth-protected-resource
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+      - path: /.well-known/agent.json
+        status: 403
+        file: null
+      - path: /llms.txt
+        status: 403
+        file: null
+      - path: /robots.txt
+        status: 403
+        file: null
+  - host: api.synovus.com
+    note: does not resolve in DNS (NXDOMAIN) — the baseURL the prior scaffold carried was never a live host
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 0
+        file: null
+      - path: /openapi.json
+        status: 0
+        file: null

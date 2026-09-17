@@ -29,38 +29,105 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/synovus-fi
 tags:
   - Banking
   - Financial-Services
+  - Regional-Bank
+  - Treasury-Management
+  - Payments
+  - United-States
+  - Pinnacle-Financial-Partners
 tags_raw:
   - Banking
   - Financial Services
+  - Regional Bank
+  - Treasury Management
+  - Payments
+  - United States
+  - Pinnacle Financial Partners
 description: >-
-  Synovus Financial is a major US corporation and Fortune 1000 company. The Synovus Financial API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+  Synovus Financial Corp. was a Columbus, Georgia based regional bank holding company whose
+  bank subsidiary, Synovus Bank, provides commercial and consumer banking, treasury and
+  payment solutions (Synovus Gateway and the Accelerate AR, FX, Pay and Trade suite), wealth
+  services and capital markets across Georgia, Alabama, Florida, South Carolina and Tennessee.
+  Synovus combined with Pinnacle Financial Partners in 2026 — synovus.com states "Synovus and
+  Pinnacle Financial Partners are now one firm" and investors.synovus.com redirects to
+  investors.pnfp.com — so the surviving company is Pinnacle. Synovus
+  publishes no public API contract: developer.synovus.com is a provisioned Akamai host that
+  answers HTTP 403 Access Denied on every path from two networks, api.synovus.com does not
+  resolve, and www.synovus.com serves no discovery documents. Treasury integration runs
+  through partners — Gateway ERP (October 2025) is powered by Koxa — and the Maast
+  subsidiary has been wound down.
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-17'
 specificationVersion: '0.23'
-apis:
-  - aid: synovus-financial:synovus-financial-api
-    name: Synovus Financial API
-    tags:
-      - Banking
-      - Financial-Services
-    tags_raw:
-      - Banking
-      - Financial Services
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.synovus.com
-    humanURL: https://developer.synovus.com
-    properties:
-      - url: https://developer.synovus.com/docs
-        type: Documentation
-    description: >-
-      The Synovus Financial API provides access to platform services and data for enterprise integration and automation.
+apis: []
+x-apis-evidence:
+  checked: '2026-09-17'
+  note: >-
+    The prior scaffold listed a "Synovus Financial API" at https://api.synovus.com with
+    documentation at https://developer.synovus.com/docs. Neither is evidence of a published
+    API: api.synovus.com is NXDOMAIN, and developer.synovus.com answers 403 Access Denied on
+    every path. The entry was removed rather than left as a claim the provider does not make.
+  probes:
+    - url: https://developer.synovus.com/docs
+      status: 403
+    - url: https://developer.synovus.com/openapi.json
+      status: 403
+    - url: https://api.synovus.com/openapi.json
+      status: 0
+      note: DNS does not resolve
 common:
-  - type: DomainSecurity
-    url: security/synovus-financial-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/synovus
   - type: Website
     url: https://www.synovus.com
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/synovus
+  - type: Support
+    url: https://www.synovus.com/contact-us/
+  - type: Blog
+    url: https://www.synovus.com/corporate/insights/
+  - type: Newsroom
+    url: https://www.synovus.com/about-us/news/
+  - type: InvestorRelations
+    url: https://investors.pnfp.com/
+  - type: PrivacyPolicy
+    url: https://www.synovus.com/contact-us/privacy-policy/
+  - type: X-SecurityIncidentReporting
+    url: https://www.synovus.com/contact-us/incident-reporting/
+  - type: DomainSecurity
+    url: security/synovus-financial-domain-security.yml
+  - type: LLMsTxt
+    url: llms/synovus-financial-llms.txt
+  - type: Plans
+    url: plans/synovus-financial-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/synovus-financial-rate-limits.yml
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-17'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    developer.synovus.com is a deliberately provisioned Akamai host (explicit edgekey CNAME, no
+    wildcard DNS) that answers HTTP 403 "Access Denied" on every path — root, /docs,
+    /openapi.json, robots.txt, llms.txt and every /.well-known/* document — from two separate
+    egress networks, while the api.synovus.com base the prior scaffold named does not resolve in
+    DNS; the only integration surfaces Synovus advertises (Gateway ERP via Koxa, Accelerate Pay)
+    are reached through the bank relationship, not a public reference.
+  evidence:
+    - url: https://developer.synovus.com/
+      status: 403
+    - url: https://developer.synovus.com/docs
+      status: 403
+    - url: https://developer.synovus.com/openapi.json
+      status: 403
+    - url: https://www.synovus.com/.well-known/api-catalog
+      status: 404
+    - url: https://www.synovus.com/llms.txt
+      status: 404
+    - url: https://api.synovus.com/openapi.json
+      status: 0
+  checked: '2026-09-17'
