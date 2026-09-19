@@ -2,24 +2,25 @@
 kin_checks:
   slug: synovus-financial
   schema_version: 0.22.0
-  scored_at: '2026-09-16'
-  run_ts: 2026-09-16T225339
-  note: Actionable checks only (missed + partial). earned/na are every other check
-    in rubric/scoring-0.22.0.yml; counts below let you verify that.
+  scored_at: '2026-09-18'
+  run_ts: 2026-09-18T205255
+  note: Actionable checks (missed + partial) in `checks`, plus the ids that did not
+    apply in `na`. Everything else in rubric/scoring-0.22.0.yml was earned; counts
+    below let you verify that.
   counts:
     total: 136
-    earned: 10
+    earned: 13
     partial: 3
-    missed: 84
+    missed: 81
     na: 39
   checks:
-  - id: tags_present
-    status: missed
   - id: multiple_apis
     status: missed
-  - id: well_known_published
+  - id: human_url_per_api
     status: missed
-  - id: llms_txt_published
+  - id: base_url_per_api
+    status: missed
+  - id: well_known_published
     status: missed
   - id: apis_json_self_hosted
     status: missed
@@ -77,6 +78,8 @@ kin_checks:
     status: missed
   - id: portal_present
     status: missed
+  - id: documentation_present
+    status: missed
   - id: api_reference_present
     status: missed
   - id: getting_started_present
@@ -95,10 +98,6 @@ kin_checks:
     status: missed
   - id: agent_skill_present
     status: missed
-  - id: support_channel
-    status: missed
-  - id: blog_present
-    status: missed
   - id: plans_multiple
     status: missed
   - id: pricing_link
@@ -106,8 +105,6 @@ kin_checks:
   - id: sign_up_present
     status: missed
   - id: terms_of_service
-    status: missed
-  - id: privacy_policy
     status: missed
   - id: compliance_published
     status: missed
@@ -120,8 +117,6 @@ kin_checks:
   - id: reg_vulnerability_disclosure
     status: missed
   - id: reg_terms_of_service
-    status: missed
-  - id: reg_privacy_policy
     status: missed
   - id: reg_compliance_published
     status: missed
@@ -191,3 +186,43 @@ kin_checks:
     status: partial
     earned: 3.5
     detail: 'grade: documented'
+  na:
+  - asyncapi_3_x
+  - channels_defined
+  - components_reuse
+  - contract_self_operated
+  - credentials_not_in_query
+  - error_responses_documented
+  - fhir_capability_statement
+  - fhir_resource_coverage
+  - graphql_descriptions
+  - graphql_sdl_present
+  - graphql_type_depth
+  - inbound_contract_published
+  - info_complete
+  - messages_with_schema
+  - oauth_flows_current
+  - oauth_scopes_enumerated
+  - openapi_3_0
+  - openapi_3_1
+  - openapi_3_2
+  - operations_description_coverage
+  - operations_operation_ids
+  - operations_summary_coverage
+  - operations_tagged
+  - os_code_of_conduct
+  - os_contribution_guide
+  - os_releases
+  - os_security_policy
+  - reg_camara_conformance
+  - reg_certification_signal
+  - reg_entitlement_terms
+  - reg_pci_sca
+  - reg_smart_configuration
+  - response_coverage
+  - security_applied
+  - security_schemes
+  - security_schemes_defined
+  - server_bindings
+  - servers_defined
+  - webhooks_or_callbacks
