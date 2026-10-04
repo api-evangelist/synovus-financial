@@ -28,7 +28,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/synovus-financial.png
 tags:
   - Banking
-  - Financial-Services
+  - Financial Services
   - Regional Bank
   - Treasury Management
   - Payments
@@ -42,6 +42,7 @@ tags_raw:
   - Payments
   - United States
   - Pinnacle Financial Partners
+  - Financial-Services
 description: >-
   Synovus Financial Corp. was a Columbus, Georgia based regional bank holding company whose
   bank subsidiary, Synovus Bank, provides commercial and consumer banking, treasury and
