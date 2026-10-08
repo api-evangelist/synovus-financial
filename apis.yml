@@ -76,6 +76,8 @@ x-apis-evidence:
       status: 0
       note: DNS does not resolve
 common:
+  - type: FinOps
+    url: finops/synovus-financial-finops.yml
   - type: Website
     url: https://www.synovus.com
   - type: LinkedIn
